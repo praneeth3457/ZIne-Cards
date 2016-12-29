@@ -1,0 +1,51 @@
+.zine-navbar {
+  background-color: #F04242;
+  background-image: none;
+  margin-bottom: 0;
+  border-bottom : #242424;
+}
+
+.zine-brand {
+  color: #fafafa !important;
+  padding-bottom: 20px !important;
+  .brand{
+    margin-top: 0;
+    font-family: impact;
+    // font-weight: bold;
+  }
+}
+
+.zine-navbar-ul {
+  a {
+    color : #FAFAFA !important;
+  }
+  li.active {
+    a {
+      color : #F04242 !important;
+      background-color: #F1E6E6 !important;
+    }
+  }
+  a:hover, a:focus {
+    background-color: #F18787 !important;
+  }
+}
+
+.zine-dropdown-menu {
+  background-color: #F1E6E6 !important;
+  li a{
+    color : #333333 !important;
+  }
+  .divider {
+    background-color: #242424 !important;
+  }
+}
+
+.navbar-header {
+    background: #242424 !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.settings {
+  display: block !important;
+}

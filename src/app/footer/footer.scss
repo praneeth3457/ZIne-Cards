@@ -1,0 +1,24 @@
+.rights {
+  color : #F1E6E6 !important;
+  font-weight: bold;
+}
+.footer-nav {
+  li {
+    list-style: none;
+    display: inline;
+    a{
+      color : #F1E6E6 !important;
+      font-weight: bold;
+    }
+  }
+  .divider {
+    padding: 0 10px;
+    color : #FAFAFA !important;
+  }
+}
+
+.zine-navbar-bottom {
+  background-color: #242424;
+  padding-top: 10px;
+  position: relative !important;
+}

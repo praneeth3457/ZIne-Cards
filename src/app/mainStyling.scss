@@ -1,0 +1,24 @@
+html {
+  height: 100%;
+} body{
+  min-height:100%;
+  margin: 0;
+}
+body {
+  background-color: #F1E6E6;
+  .mainContent {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    min-height: 450px;
+  }
+}
+
+@import './generic';
+@import './header/header';
+@import './howToPlay/howToPlay';
+@import './footer/footer';
+@import './log-in/login';
+@import './profile/profile';
+@import './sub-header/subHeader';
+@import './main/main';
+@import './stats/stats';

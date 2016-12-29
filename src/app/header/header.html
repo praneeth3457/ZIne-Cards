@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default navbar-fixed-top zine-navbar" ng-controller="headerController as header">
+  <!-- <div class="container-fluid"> -->
+
+    <!-- Zine brand -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#zine-navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand zine-brand" href="/">
+        <h3 class="brand">ZINE CARDS</h3>
+      </a>
+    </div>
+
+    <!-- menu bar -->
+    <div class="container">
+      <div class="collapse navbar-collapse" id="zine-navbar-collapse">
+        <!-- <button type="button" class="btn btn-default navbar-btn pull-right">Sign in</button> -->
+        <ul class="nav navbar-nav pull-right zine-navbar-ul">
+          <li ng-class="{'active' : header.isActive('/')}"><a href="/"><b>GAME </b><span class="sr-only">(current)</span></a></li>
+          <li ng-class="{'active' : header.isActive('/stats')}" ng-if="header.isLogin == true"><a href="/stats"><b>STATS</b></a></li>
+          <li ng-class="{'active' : header.isActive('/how-to-play')}"><a href="/how-to-play"><b>HOW TO PLAY</b></a></li>
+          <li ng-if="header.isLogin != true" ng-class="{'active' : header.isActive('/login')}"><a href="/login"><b>LOG IN</b></a></li>
+          <li ng-if="header.isLogin == true">
+            <a href="" class="dropdown-toggle" ng-click="header.toggleSettings()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b> SETTINGS <i class="glyphicon glyphicon-cog"></i></b></a>
+             <ul class="dropdown-menu zine-dropdown-menu" ng-class="{'settings' : header.isSettings}">
+               <li><a href="/profile" ng-click="header.toggleSettings()"><b>My Profile</b></a></li>
+
+               <li role="separator" class="divider"></li>
+               <li><a href="#" ng-click="header.logout(); header.toggleSettings();"><b>Log Out</b></a></li>
+             </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</nav>

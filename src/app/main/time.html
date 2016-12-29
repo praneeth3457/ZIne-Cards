@@ -1,0 +1,12 @@
+<!-- <canvas id="progress-bar" width="70" height="70"></canvas> -->
+<div class="waitTime">
+<p ng-if="!main.startGameTimer">Please wait for the other players to join!</p>
+<p ng-if="main.startGameTimer">Time remaining to start the game : {{main.timeToStart}} seconds</p>
+</div>
+<div class="showTimer">
+<div class="timer text-center">
+  <p class="text-center voffset6 timeText"><strong>Time remaining to place a show</strong></p>
+  <span class="timeSeconds">15</span>
+</div>
+<button class="btn btn-primary btn-lg voffset4"><strong>Show</strong></button>
+</div>

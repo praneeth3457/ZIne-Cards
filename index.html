@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="zine-cards">
+  <head>
+    <title>Zine Cards</title>
+    <base href="/">
+
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./src/index.css">
+
+    <!-- DEV DEPENDENCIES -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="./node_modules/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="./node_modules/highcharts/highcharts.js"></script>
+    <script src="./node_modules/highcharts/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>-->
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js"></script>
+
+    <!-- PROJECT DEPENDENCIES -->
+    <script src="/src/app/app.js"></script>
+        <!-- CONTROLLERS -->
+    <script src="./src/app/footer/footer.js"></script>
+    <script src="./src/app/header/header.js"></script>
+    <script src="./src/app/howToPlay/howToPlay.js"></script>
+    <script src="./src/app/log-in/login.js"></script>
+    <script src="./src/app/main/main.js"></script>
+    <script src="./src/app/profile/profile.js"></script>
+    <script src="./src/app/stats/stats.js"></script>
+    <script src="./src/app/sub-header/subHeader.js"></script>
+        <!-- SERVICES -->
+    <script src="./src/app/services/loginService.js"></script>
+    <script src="./src/app/services/pageFlowService.js"></script>
+    <script src="./src/app/services/profileService.js"></script>
+    <script src="./src/app/services/statsService.js"></script>
+    <script src="./src/app/services/userService.js"></script>
+
+  </head>
+  <body>
+    <div ng-include="'./src/app/header/header.html'"></div>
+    <div ng-controller="subHeaderController as subheader" ng-include="'./src/app/sub-header/subHeader.html'"></div>
+    <div class="container mainContent">
+      <ui-view></ui-view>
+    </div>
+    <div ng-include="'./src/app/footer/footer.html'"></div>
+  <body>
+</html>

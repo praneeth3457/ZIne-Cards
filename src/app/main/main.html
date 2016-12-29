@@ -1,0 +1,24 @@
+<div class="row main" ng-controller="mainController as main">
+  <div class="col-xs-12">
+    <div class="playGame col-xs-12 voffset2">
+      <div ng-if="!main.isGame">
+        <h2 class="text-center voffset6 welcome"> Welcome to Zine Cards!</h2>
+        <button class="btn btn-default btn-lg playGameBtn" ng-click="main.playGame();">PLAY GAME <i class="glyphicon glyphicon-circle-arrow-right playGameIcon"></i></button>
+        <h4 class="text-center voffset6"><a class="howToPlayLink" href="/how-to-play">How to Play ?</a></h4>
+      </div>
+
+      <div ng-if="main.isGame">
+        <!-- For loading users -->
+        <div ng-include src="'./src/app/main/users.html'"></div>
+
+        <!-- For time events -->
+        <div ng-include src="'./src/app/main/time.html'"></div>
+        <!-- <div id="timeContainer" class="waitTime" style="width: 300px; height: 300px; margin: 0 auto">
+        </div> -->
+
+        <!-- For zine cards -->
+        <div ng-include src="'./src/app/main/cards.html'"></div>
+      </div>
+    </div>
+  </div>
+</div>

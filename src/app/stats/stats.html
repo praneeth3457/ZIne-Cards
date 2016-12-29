@@ -1,0 +1,136 @@
+<div class="row" ng-controller="statsController as stats">
+  <div class="row stats">
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Highest Stars</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table statsTbl mainCol">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th class="text-right">Games</th>
+                <th>Level</th>
+                <th class="text-right">Average</th>
+                <th class="text-right">Game Wins</th>
+                <th class="text-right">Stars</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="data in stats.data | orderBy:'rank'">
+                <td>{{data.rank}}</td>
+                <td>{{data.username}}</td>
+                <td class="text-right">{{data.games}}</td>
+                <td>{{data.level}}</td>
+                <td class="text-right">{{data.avg}}</td>
+                <td class="text-right">{{data.wins}}</td>
+                <td class="text-right">{{data.stars}}</td>
+              </tr>
+            <tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Highest Games</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table statsTbl mainCol">
+            <thead>
+              <tr>
+                <th>Sno.</th>
+                <th>Player</th>
+                <th class="text-right">Stars</th>
+                <th>Level</th>
+                <th class="text-right">Average</th>
+                <th class="text-right">Game Wins</th>
+                <th class="text-right">Games</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="data in stats.data | orderBy:'-games'">
+                <td>{{$index + 1}}</td>
+                <td>{{data.username}}</td>
+                <td class="text-right">{{data.stars}}</td>
+                <td>{{data.level}}</td>
+                <td class="text-right">{{data.avg}}</td>
+                <td class="text-right">{{data.wins}}</td>
+                <td class="text-right">{{data.games}}</td>
+              </tr>
+            <tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Highest Average</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table statsTbl mainCol">
+            <thead>
+              <tr>
+                <th>Sno.</th>
+                <th>Player</th>
+                <th class="text-right">Stars</th>
+                <th>Level</th>
+                <th class="text-right">Game Wins</th>
+                <th class="text-right">Games</th>
+                <th class="text-right">Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="data in stats.data | orderBy:'avg'">
+                <td>{{$index + 1}}</td>
+                <td>{{data.username}}</td>
+                <td class="text-right">{{data.stars}}</td>
+                <td>{{data.level}}</td>
+                <td class="text-right">{{data.wins}}</td>
+                <td class="text-right">{{data.games}}</td>
+                <td class="text-right">{{data.avg}}</td>
+              </tr>
+            <tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Highest Wins</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table statsTbl mainCol">
+            <thead>
+              <tr>
+                <th>Sno.</th>
+                <th>Player</th>
+                <th class="text-right">Stars</th>
+                <th>Level</th>
+                <th class="text-right">Average</th>
+                <th class="text-right">Games</th>
+                <th class="text-right">Game Wins</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="data in stats.data | orderBy:'-wins'">
+                <td>{{$index + 1}}</td>
+                <td>{{data.username}}</td>
+                <td class="text-right">{{data.stars}}</td>
+                <td>{{data.level}}</td>
+                <td class="text-right">{{data.avg}}</td>
+                <td class="text-right">{{data.games}}</td>
+                <td class="text-right">{{data.wins}}</td>
+              </tr>
+            <tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

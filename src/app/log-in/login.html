@@ -1,0 +1,120 @@
+
+<div class="row voffset6" ng-controller="loginController as login">
+  <div class="panel voffset6 col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+    <div class="row login-nav">
+      <h3 class="text-center col-xs-6 loginMenu" ng-class="{'active' : login.loginName == 'login'}"><a href="" ng-click="login.login('login')">Log In</a></h3>
+      <h3 class="text-center col-xs-6 loginMenu" ng-class="{'active' : login.loginName == 'register'}"><a href="" ng-click="login.login('register')">Register</a></h3>
+    </div>
+  <!-- ***************************
+    ******** Login view ********
+    **************************** -->
+     <div class="row" ng-if="login.loginName == 'login'">
+       <div class="col-xs-10 col-xs-offset-1 voffset4 alert alert-danger" ng-if="login.loginError">
+         <p><strong>Alert! </strong>{{login.loginError}}</p>
+       </div>
+       <form id="signin" class="form-horizontal col-xs-12 col-md-10 col-md-offset-1 login-form" role="form" ng-submit="login.loginSubmit();">
+         <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+             <input id="text" type="text" class="form-control input-lg" name="username" value="" ng-model="login.loginUsername" placeholder="Username" autofocus required>
+         </div>
+
+         <div class="input-group voffset5">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+             <input id="password" type="password" class="form-control input-lg" name="password" value="" ng-model="login.loginPassword" placeholder="Password" required>
+         </div>
+
+         <button type="submit" class="btn btn-primary btn-lg voffset5 col-xs-10 col-xs-offset-1">Login</button>
+       </form>
+     </div>
+
+      <!-- **************************
+      ******** Register view ********
+      *************************** -->
+      <div class="row" ng-if="login.loginName == 'register'">
+        <!--Inline error messages-->
+        <div class="col-xs-11 col-xs-offset-1 voffset4 alert alert-danger" ng-if="login.registerInlineError">
+          <p class="neg" ng-if="isNameError"><strong>Alert! </strong>{{login.nameError}}</p>
+          <p class="neg" ng-if="isUsernameError"><strong>Alert! </strong>{{login.usernameError}}</p>
+          <p class="neg" ng-if="isPasswordError"><strong>Alert! </strong>{{login.passwordError}}</p>
+          <p class="neg" ng-if="isCPasswordError"><strong>Alert! </strong>{{login.cpasswordError}}</p>
+        </div>
+        <!--After submit error messages-->
+        <div class="col-xs-10 col-xs-offset-1 voffset4 alert alert-danger" ng-if="login.registerSubmitError == 'unsuccess' || login.registerSubmitError == 'error'">
+          <p ng-if="login.registerSubmitError == 'unsuccess'"><strong>Alert! </strong>{{login.registerUnsuccessMsg}}</p>
+          <p ng-if="login.registerSubmitError == 'error'"><strong>Alert! </strong>Service unavailable. Please try again later!</p>
+        </div>
+        <!--Register success message-->
+        <div class="col-xs-10 col-xs-offset-1 voffset4 alert alert-success" ng-if="login.isRegister">
+          <p><strong>Well Done! </strong>{{login.registerMsg}}</p>
+        </div>
+
+        <!--Form for registering a user-->
+        <form id="signin" class="form-horizontal col-xs-12 login-form" role="form" ng-submit="login.register();">
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="name">Name :</label>
+            <div class="col-sm-8" ng-class="{'has-success' : login.isNameError == false, 'has-error' : login.isNameError == true}">
+              <input type="text" class="form-control input-lg" id="name" ng-model="login.registerName" ng-change="login.checkName(registerName);" min="3" max="20" placeholder="Enter name" required autofocus>
+              <span ng-if="login.isNameError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
+              <span ng-if="login.isNameError == true" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="gender">Gender :</label>
+            <div class="col-sm-8">
+              <div class="radio">
+                <label class="hoffset1">
+                  <input type="radio" name="gender" id="male" ng-model="login.gender" value="male" checked>
+                  Male
+                </label>
+                <label class="hoffset3">
+                  <input type="radio" name="gender" id="female" ng-model="login.gender" value="female">
+                  Female
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="uname">Username :</label>
+            <div class="col-sm-8" ng-class="{'has-success' : login.isUsernameError == false, 'has-error' : login.isUsernameError == true}">
+              <input type="text" class="form-control input-lg" id="uname" ng-model="login.registerUsername" ng-change="login.checkUsername(registerUsername)" placeholder="Enter username" required>
+              <span ng-if="login.isUsernameError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
+              <span ng-if="login.isUsernameError == true" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Email :</label>
+            <div class="col-sm-8">
+              <input type="email" class="form-control input-lg" id="email" ng-model="login.registerEmail" placeholder="Enter email" required>
+              <!-- <span ng-if="isNameError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
+              <span ng-if="isNameError" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span> -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="password">Password :</label>
+            <div class="col-sm-8" ng-class="{'has-success' : login.isPasswordError == false, 'has-error' : login.isPasswordError == true}">
+              <input type="password" class="form-control input-lg" id="password" ng-model="login.registerPassword" ng-change="login.checkPassword(registerPassword)" placeholder="Enter password" required>
+              <span ng-if="login.isPasswordError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
+              <span ng-if="login.isPasswordError == true" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-4" for="cpassword">Confirm Password :</label>
+            <div class="col-sm-8" ng-class="{'has-success' : login.isCPasswordError == false, 'has-error' : login.isCPasswordError == true}">
+              <input type="password" class="form-control input-lg" id="cpassword" ng-model="login.registerCPassword" ng-change="login.checkCPassword(registerCPassword, registerPassword)" placeholder="Confirm password" required>
+              <span ng-if="login.isCPasswordError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
+              <span ng-if="login.isCPasswordError == true" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg col-sm-8 col-sm-offset-4">
+            <i class="glyphicon glyphicon-refresh spinner hoffset1r" ng-if="login.registerSpinner"></i>
+            Sign up
+          </button>
+        </form>
+       </div>
+  </div>
+</div>

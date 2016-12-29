@@ -1,0 +1,98 @@
+
+.voffset1 {margin-top: 5px;}
+.voffset2 {margin-top: 10px;}
+.voffset3 {margin-top: 15px;}
+.voffset4 {margin-top: 20px;}
+.voffset5 {margin-top: 25px;}
+.voffset6 {margin-top: 30px;}
+
+.voffset1b {margin-bottom: 5px;}
+.voffset2b {margin-bottom: 10px;}
+.voffset3b {margin-bottom: 15px;}
+.voffset4b {margin-bottom: 20px;}
+.voffset5b {margin-bottom: 25px;}
+.voffset6b {margin-bottom: 30px;}
+
+.hoffset1r {margin-right: 5px;}
+.hoffset2r {margin-right: 10px;}
+.hoffset3r {margin-right: 15px;}
+.hoffset4r {margin-right: 20px;}
+.hoffset5r {margin-right: 25px;}
+.hoffset6r {margin-right: 30px;}
+
+.hoffset1 {margin-left: 5px;}
+.hoffset2 {margin-left: 10px;}
+.hoffset3 {margin-left: 15px;}
+.hoffset4 {margin-left: 20px;}
+.hoffset5 {margin-left: 25px;}
+.hoffset6 {margin-left: 30px;}
+
+.vpadding1 {padding-top: 5px;}
+.vpadding1 {padding-top: 10px;}
+.vpadding1 {padding-top: 15px;}
+.vpadding1 {padding-top: 20px;}
+.vpadding1 {padding-top: 25px;}
+.vpadding1 {padding-top: 30px;}
+
+.vpadding1b {padding-bottom: 5px;}
+.vpadding1b {padding-bottom: 10px;}
+.vpadding1b {padding-bottom: 15px;}
+.vpadding1b {padding-bottom: 20px;}
+.vpadding1b {padding-bottom: 25px;}
+.vpadding1b {padding-bottom: 30px;}
+
+.hpadding1r {padding-right: 5px;}
+.hpadding1r {padding-right: 10px;}
+.hpadding1r {padding-right: 15px;}
+.hpadding1r {padding-right: 20px;}
+.hpadding1r {padding-right: 25px;}
+.hpadding1r {padding-right: 30px;}
+
+.hpadding1 {padding-left: 5px;}
+.hpadding1 {padding-left: 10px;}
+.hpadding1 {padding-left: 15px;}
+.hpadding1 {padding-left: 20px;}
+.hpadding1 {padding-left: 25px;}
+.hpadding1 {padding-left: 30px;}
+
+.neg {
+  color: #d9534f;
+}
+.pull-left {
+  float : left;
+}
+.pull-right {
+  float: right;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-muted {
+  color: #797D7F;
+}
+.no-border tr th, .no-border tr td {
+  border : none !important;
+}
+.border-bottom tr {
+  border-bottom : 1px solid silver;
+}
+
+.spinner {
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

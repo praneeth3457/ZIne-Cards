@@ -1,0 +1,12 @@
+<div class="subHeader" ng-if="subheader.isLogin">
+  <div class="col-xs-12 subhead">
+    <div class="col-xs-6 col-xs-offset-1">
+      Welcome! <span class="name">{{subheader.name}}</span>
+    </div>
+    <div class="col-xs-5" ng-class="{'platinum' : subheader.level == 'Platinum', 'gold' : subheader.level == 'Gold', 'silver' : subheader.level == 'Silver', 'bronze' : subheader.level == 'Bronze'}">
+      <span class="subheader-badges">Level <span class="badge">{{subheader.level}}</span></span>
+      <span class="subheader-badges">Stars <span class="badge">{{subheader.stars}}</span></span>
+      <span class="subheader-badges">Rank <span class="badge">{{subheader.rank}}</span></span>
+    </div>
+  </div>
+</div>

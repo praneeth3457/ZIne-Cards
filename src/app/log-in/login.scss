@@ -1,0 +1,23 @@
+
+.login-form {
+
+  padding: 40px;
+}
+.login-nav {
+  background-color: #f7f7f7;
+  .loginMenu {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
+  }
+  .loginMenu a{
+    color: #242424 !important;
+  }
+  .loginMenu a:hover, .loginMenu a:focus{
+    text-decoration: none;
+  }
+  .active{
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #F04242;
+  }
+}
