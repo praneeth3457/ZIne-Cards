@@ -10,6 +10,8 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var mongoStore = require('connect-mongo')(session);
+var passport = require('passport');
+var localStrategy = require('passport-local').Strategy;
 
 users = [];
 connections = [];
@@ -33,7 +35,13 @@ app.use(morgan('dev'));
 app.use(session({
 		secret:"udj9sddasdsa78aaf76",
 		resave:false,
-		saveUninitialized:true
+		saveUninitialized:true,
+		store: new mongoStore(
+			{
+				mongooseConnection: mongoose.connection,
+				ttl: 15 * 60 * 60
+			}
+		)
 	})
 );
 

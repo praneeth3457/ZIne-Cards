@@ -107,21 +107,20 @@ module.exports = function(app, express) {
 			if(err){
 				return res.status(500).send();
 			}
-
 			if(!user){
 				return res.status(200).send({message:'Unsuccess'});
 			}
-
-			req.sessionStore.user = user;
+			req.session.user = user;
+			// req.sessionStore.user = user;
 			return res.status(200).send({message:'Success', user: user});
 		})
 
 		api.get('/dashboard', function(req, res) {
 			//var session = JSON.parse(req.sessionStore.sessions[Object.keys(req.sessionStore.sessions)[1]]);
-			if(!req.sessionStore.user) {
+			if(!req.session.user) {
 				return res.status(401).send();
 			} else {
-				User.findOne({_id:req.sessionStore.user._id}, function(err, user){
+				User.findOne({_id:req.session.user._id}, function(err, user){
 					if(err){
 						return res.status(500).send();
 					}
@@ -136,11 +135,11 @@ module.exports = function(app, express) {
 		})
 
 		api.get('/logout', function(req, res) {
-			if(!req.sessionStore.user) {
+			if(!req.session.user) {
 				return res.status(401).send();
 			}
 
-			req.sessionStore.user = null;
+			req.session.user = null;
 			return res.status(200).send({message:'Successfully logged out'});
 		})
 
