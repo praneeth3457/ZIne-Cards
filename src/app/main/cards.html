@@ -1,23 +1,11 @@
-<div class="zineCards">
+<div class="zineCards" ng-if="main.cards.length > 0">
   <div>
-    <div class="thumbnail card">
-      <img src="./src/app/images/cards/1.png" alt="">
-    </div>
-    <div class="thumbnail card">
-      <img src="./src/app/images/cards/1.png" alt="">
-    </div>
-    <div class="thumbnail card">
-      <img src="./src/app/images/cards/1.png" alt="">
-    </div>
-    <div class="thumbnail card">
-      <img src="./src/app/images/cards/1.png" alt="">
-    </div>
-    <div class="thumbnail card">
-      <img src="./src/app/images/cards/1.png" alt="">
+    <div class="thumbnail card" ng-repeat="card in main.cards track by $index">
+      <img src="./src/app/images/cards/{{card}}.png" alt="">
     </div>
   </div>
   <div class="cardsTotal">
-    <h2>TOTAL = 10/18</h2>
-    <span>[Zine suggests your cards are excellent.]</span>
+    <h2>TOTAL = {{main.cardsTotal}}/{{main.maxTotal}}</h2>
+    <span>[Zine suggests your cards are {{main.suggest}}]</span>
   </div>
 </div>

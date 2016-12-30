@@ -334,6 +334,11 @@ body {
 .howToPlayLink {
   color: #fafafa !important; }
 
+.showCards {
+  max-width: 25px !important;
+  float: left !important;
+  margin-bottom: 0 !important; }
+
 .playGame {
   height: 550px;
   background: #1A3E4D;
@@ -363,7 +368,7 @@ body {
       font-weight: bold; }
 
 .userGameThumbnail {
-  width: 120px;
+  width: 140px;
   margin: 0 auto;
   position: absolute;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
@@ -436,9 +441,14 @@ body {
     font-weight: bold;
     text-align: center; }
 
-/* Progress Bar Styling */
-#progress-bar {
-  border: 1px dashed #242424; }
+.gameWin {
+  border: 3px solid green; }
+
+.gameLoss {
+  border: 3px solid red; }
+
+.newGame {
+  border: none; }
 
 .stats {
   margin-top: 100px; }

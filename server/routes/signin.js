@@ -170,6 +170,47 @@ module.exports = function(app, express) {
 		);
 	});
 
+	//update stats after the game
+	api.post('/updateStats', function(req, res) {
+		console.log(req);
+		var stars;
+		var wins;
+		var error = [];
+		for(var i=0; i<req.body.length; i++){
+			if(req.body[i].points >= 250){
+				stars = 300;
+				wins = 1;
+			} else {
+				stars = req.body[i].points;
+				wins = 0;
+			}
+			User.update(
+		    {_id: req.body[i]._id},
+		    {$set: {
+					games: req.body[i].games + 1,
+					stars: req.body[i].stars + stars,
+					wins: req.body[i].wins + wins
+				}},
+		    {safe: true, upsert: true},
+		    function(err, model) {
+					if(err) {
+						error.push(err);
+					}
+
+
+		    }
+			);
+		}
+		
+		if(error.length > 0){
+			res.send({message: 'Unsuccess', 'error':err});
+			return;
+		}
+		res.json({message: 'Success'});
+
+
+	});
+
 	return api
 
 }

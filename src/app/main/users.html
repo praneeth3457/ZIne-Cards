@@ -1,5 +1,5 @@
 <div>
-    <div class="thumbnail userGameThumbnail user{{$index + 1}}" ng-repeat="user in main.gameDetails.users">
+    <div class="thumbnail userGameThumbnail user{{$index + 1}}" ng-repeat="user in main.gameDetails.users" ng-class="{'gameWin' : user.lastGameStatus == 'max', 'gameLoss' : user.lastGameStatus == 'min', 'newGame' : main.newGameStart}">
       <img src="./src/app/images/avatar-male/male1.png" alt=""/>
       <div class="caption text-center">
         <span><strong>{{user.username}}</strong></span>
@@ -8,6 +8,16 @@
 
         <div class="progress-bar" role="progressbar" aria-valuenow="user.points" aria-valuemin="0" aria-valuemax="250" style="width: {{user.pointsPer}}%; font-weight: bold; font-size: 15px !important; overflow-x:initial;">
           {{user.points}} points
+        </div>
+      </div>
+
+
+      <div ng-if="main.showOtherUserCards">
+        <div class="thumbnail showCards" ng-repeat="card in user.prevCards track by $index">
+          <img src="./src/app/images/cards/{{card}}.png" alt="">
+        </div>
+        <div>
+          Total : {{user.cardsTotalValue}}/{{user.maxTotalValue}}
         </div>
       </div>
     </div>
