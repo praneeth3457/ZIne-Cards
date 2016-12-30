@@ -53,7 +53,7 @@
           <div class="form-group">
             <label class="control-label col-sm-4" for="name">Name :</label>
             <div class="col-sm-8" ng-class="{'has-success' : login.isNameError == false, 'has-error' : login.isNameError == true}">
-              <input type="text" class="form-control input-lg" id="name" ng-model="login.registerName" ng-change="login.checkName(registerName);" min="3" max="20" placeholder="Enter name" required autofocus>
+              <input type="text" class="form-control input-lg" id="name" ng-model="login.registerName" ng-change="login.checkName(login.registerName);" min="3" max="20" placeholder="Enter name" required autofocus>
               <span ng-if="login.isNameError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
               <span ng-if="login.isNameError == true" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span>
             </div>
@@ -77,7 +77,7 @@
           <div class="form-group">
             <label class="control-label col-sm-4" for="uname">Username :</label>
             <div class="col-sm-8" ng-class="{'has-success' : login.isUsernameError == false, 'has-error' : login.isUsernameError == true}">
-              <input type="text" class="form-control input-lg" id="uname" ng-model="login.registerUsername" ng-change="login.checkUsername(registerUsername)" placeholder="Enter username" required>
+              <input type="text" class="form-control input-lg" id="uname" ng-model="login.registerUsername" ng-change="login.checkUsername(login.registerUsername)" placeholder="Enter username" required>
               <span ng-if="login.isUsernameError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
               <span ng-if="login.isUsernameError == true" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span>
             </div>
@@ -95,7 +95,7 @@
           <div class="form-group">
             <label class="control-label col-sm-4" for="password">Password :</label>
             <div class="col-sm-8" ng-class="{'has-success' : login.isPasswordError == false, 'has-error' : login.isPasswordError == true}">
-              <input type="password" class="form-control input-lg" id="password" ng-model="login.registerPassword" ng-change="login.checkPassword(registerPassword)" placeholder="Enter password" required>
+              <input type="password" class="form-control input-lg" id="password" ng-model="login.registerPassword" ng-change="login.checkPassword(login.registerPassword)" placeholder="Enter password" required>
               <span ng-if="login.isPasswordError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
               <span ng-if="login.isPasswordError == true" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span>
             </div>
@@ -104,7 +104,7 @@
           <div class="form-group">
             <label class="control-label col-sm-4" for="cpassword">Confirm Password :</label>
             <div class="col-sm-8" ng-class="{'has-success' : login.isCPasswordError == false, 'has-error' : login.isCPasswordError == true}">
-              <input type="password" class="form-control input-lg" id="cpassword" ng-model="login.registerCPassword" ng-change="login.checkCPassword(registerCPassword, registerPassword)" placeholder="Confirm password" required>
+              <input type="password" class="form-control input-lg" id="cpassword" ng-model="login.registerCPassword" ng-change="login.checkCPassword(login.registerCPassword, login.registerPassword)" placeholder="Confirm password" required>
               <span ng-if="login.isCPasswordError == false" class="glyphicon glyphicon-ok form-control-feedback hoffset2r" aria-hidden="true"></span>
               <span ng-if="login.isCPasswordError == true" class="glyphicon glyphicon-remove form-control-feedback hoffset2r" aria-hidden="true"></span>
             </div>
