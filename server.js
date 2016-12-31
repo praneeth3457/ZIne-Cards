@@ -175,12 +175,22 @@ io.sockets.on('connection', function(socket) {
 					}
 
 				}, 1000);
+			} else {
+				placeAShow({user: 'Zine auto-show', gameDetails : gameDetails});
 			}
 
 
 		}
 
 		socket.on('place show', function(data){
+			placeAShow(data);
+		});
+
+		io.sockets.emit('get game user', gameUsers[gameUsers.length - 1]);
+
+
+		var placeAShow = function(data) {
+			console.log(data);
 			io.sockets.emit('get placed user', data);
 			var usersLen = data.gameDetails.users.length;
 			var cardTotalsArray = [];
@@ -247,8 +257,6 @@ io.sockets.on('connection', function(socket) {
 			clearInterval(gameRoundTimer);
 
 			io.sockets.emit('new data', data.gameDetails);
-		});
-
-		io.sockets.emit('get game user', gameUsers[gameUsers.length - 1]);
+		}
 	});
 });
