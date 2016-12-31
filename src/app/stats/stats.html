@@ -85,7 +85,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="data in stats.data | orderBy:'avg'">
+              <tr ng-repeat="data in stats.avgData">
                 <td>{{$index + 1}}</td>
                 <td>{{data.username}}</td>
                 <td class="text-right">{{data.stars}}</td>
