@@ -419,13 +419,15 @@ body {
     font-weight: bold;
     width: 100%; }
 
-.waitTime p {
-  color: #FAFAFA;
+.waitTime {
   position: absolute;
   top: 48%;
-  left: 35%;
-  font-weight: bold;
-  font-size: 16px; }
+  left: 22%; }
+  .waitTime p {
+    color: #FAFAFA;
+    float: left;
+    font-weight: bold;
+    font-size: 16px; }
 
 .zineCards {
   position: absolute;

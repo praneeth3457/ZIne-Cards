@@ -107,11 +107,12 @@
 }
 
 .waitTime {
+  position: absolute;
+  top: 48%;
+  left : 22%;
   p {
     color : #FAFAFA;
-    position: absolute;
-    top: 48%;
-    left : 35%;
+    float : left;
     font-weight: bold;
     font-size: 16px;
   }

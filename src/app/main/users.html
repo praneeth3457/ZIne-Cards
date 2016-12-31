@@ -12,11 +12,11 @@
       </div>
 
 
-      <div ng-if="main.showOtherUserCards">
+      <div class="" ng-if="main.showOtherUserCards">
         <div class="thumbnail showCards" ng-repeat="card in user.prevCards track by $index">
           <img src="./src/app/images/cards/{{card}}.png" alt="">
         </div>
-        <div>
+        <div class="col-xs-12">
           Total : {{user.cardsTotalValue}}/{{user.maxTotalValue}}
         </div>
       </div>

@@ -1,8 +1,8 @@
 <!-- <canvas id="progress-bar" width="70" height="70"></canvas> -->
 <div class="waitTime">
   <p ng-if="!main.isGameStart && !main.startGameTimer">Please wait for the other players to join!</p>
-  <p ng-if="!main.isGameStart && main.startGameTimer">Time remaining to start the game : {{main.timeToStart}} seconds</p>
-  <p ng-if="main.isPlacedMessage">{{main.placedMessage}}</p>
+  <p ng-class="pull-left hoffset1r" ng-if="main.isPlacedMessage">{{main.placedMessage}}</p>
+  <p ng-class="pull-left" ng-if="!main.isGameStart && main.startGameTimer">Time remaining to start the game : {{main.timeToStart}} seconds</p>
 </div>
 <div class="showTimer" ng-if="main.isGameRoundTimer">
 <div class="timer text-center">

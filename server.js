@@ -128,7 +128,7 @@ io.sockets.on('connection', function(socket) {
 		}
 
 		startTimeInterval = function(check, gameDetails){
-			var time = 20;
+			var time = 60;
 			if(check == false) {
 				clearInterval(startTime);
 				time = 10;

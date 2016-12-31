@@ -181,12 +181,13 @@ app.controller('mainController', function($http, userService, $location, $scope,
        if(time == 0){
          clearInterval(setTimeInterval);
          main.startGameTimer = false;
+         main.isPlacedMessage = false;
          main.isGameStart = true;
        }
        $scope.$apply();
     }, 1000);
 
-    main.isPlacedMessage = false;
+    // main.isPlacedMessage = false;
     $scope.$apply();
   });
 
@@ -203,7 +204,7 @@ app.controller('mainController', function($http, userService, $location, $scope,
     }
     $timeout(function () {
       $location.path('/stats');
-    }, 3000);
+    }, 2000);
     statsService.updateStats(data.data.gameDetails.users).then(function(res) {
       $http.get('/dashboard').then(function(response) {
         //$rootScope.$broadcast('userData', {user : response.data.user});
