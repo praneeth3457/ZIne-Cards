@@ -152,7 +152,7 @@ io.sockets.on('connection', function(socket) {
 				do {
 					var random = Math.random();
 					var remCardsLen = gameDetails.remainingCards.length;
-					var pickedNum = Math.round(random * remCardsLen);
+					var pickedNum = Math.round(random * (remCardsLen - 1));
 					// console.log(gameDetails.remainingCards[pickedNum]);
 					gameDetails.users[j].presentCards.push(gameDetails.remainingCards[pickedNum]);
 					// console.log(gameDetails.users[j].presentCards);
@@ -190,7 +190,6 @@ io.sockets.on('connection', function(socket) {
 
 
 		var placeAShow = function(data) {
-			console.log(data);
 			io.sockets.emit('get placed user', data);
 			var usersLen = data.gameDetails.users.length;
 			var cardTotalsArray = [];
