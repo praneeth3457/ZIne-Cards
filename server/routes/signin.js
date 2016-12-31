@@ -70,6 +70,11 @@ module.exports = function(app, express) {
 					gol = lev*2;
 					sil = lev*3;
 					bro = lev*4 + 1;
+				} else {
+					pla = lev;
+					gol = lev*2;
+					sil = lev*3;
+					bro = lev*4;
 				}
 
 				for(var i=0; i<stats.length; i++) {
@@ -97,7 +102,6 @@ module.exports = function(app, express) {
 					totalStats.push(statsObj);
 				}
 			}
-
 				return res.status(200).send({message:'Success', stats: totalStats});
 		});
 	});
@@ -172,7 +176,6 @@ module.exports = function(app, express) {
 
 	//update stats after the game
 	api.post('/updateStats', function(req, res) {
-		console.log(req);
 		var stars;
 		var wins;
 		var error = [];
@@ -201,7 +204,7 @@ module.exports = function(app, express) {
 		    }
 			);
 		}
-		
+
 		if(error.length > 0){
 			res.send({message: 'Unsuccess', 'error':err});
 			return;
