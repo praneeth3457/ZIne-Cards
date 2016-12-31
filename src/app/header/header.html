@@ -19,17 +19,17 @@
       <div class="collapse navbar-collapse" id="zine-navbar-collapse">
         <!-- <button type="button" class="btn btn-default navbar-btn pull-right">Sign in</button> -->
         <ul class="nav navbar-nav pull-right zine-navbar-ul">
-          <li ng-class="{'active' : header.isActive('/')}"><a href="/"><b>GAME </b><span class="sr-only">(current)</span></a></li>
-          <li ng-class="{'active' : header.isActive('/stats')}" ng-if="header.isLogin == true"><a href="/stats"><b>STATS</b></a></li>
-          <li ng-class="{'active' : header.isActive('/how-to-play')}"><a href="/how-to-play"><b>HOW TO PLAY</b></a></li>
-          <li ng-if="header.isLogin != true" ng-class="{'active' : header.isActive('/login')}"><a href="/login"><b>LOG IN</b></a></li>
+          <li ng-class="{'active' : header.isActive('/')}"><a href="/"><b><i class="menuIcon game glyphicon glyphicon-play-circle"></i> </b><span class="sr-only">(current)</span></a></li>
+          <li ng-class="{'active' : header.isActive('/stats')}" ng-if="header.isLogin == true"><a href="/stats"><b><i class="menuIcon stat glyphicon glyphicon-stats"></i></b></a></li>
+          <li ng-class="{'active' : header.isActive('/how-to-play')}"><a href="/how-to-play"><b><i class="menuIcon rules glyphicon glyphicon-question-sign"></i></b></a></li>
+          <li ng-if="header.isLogin != true" ng-class="{'active' : header.isActive('/login')}"><a href="/login"><b><i class="menuIcon logIn glyphicon glyphicon-log-in"></i></b></a></li>
           <li ng-if="header.isLogin == true">
-            <a href="" class="dropdown-toggle" ng-click="header.toggleSettings()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b> SETTINGS <i class="glyphicon glyphicon-cog"></i></b></a>
+            <a href="" class="dropdown-toggle" ng-click="header.toggleSettings()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b> <i class="menuIcon settings glyphicon glyphicon-cog"></i></b></a>
              <ul class="dropdown-menu zine-dropdown-menu" ng-class="{'settings' : header.isSettings}">
-               <li><a href="/profile" ng-click="header.toggleSettings()"><b>My Profile</b></a></li>
+               <li><a href="/profile" ng-click="header.toggleSettings()"><b><i class="glyphicon glyphicon-user"></i> My Profile</b></a></li>
 
                <li role="separator" class="divider"></li>
-               <li><a href="#" ng-click="header.logout(); header.toggleSettings();"><b>Log Out</b></a></li>
+               <li><a href="#" ng-click="header.logout(); header.toggleSettings();"><b><i class="glyphicon glyphicon-log-out"></i> Log Out</b></a></li>
              </ul>
           </li>
         </ul>

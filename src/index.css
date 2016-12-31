@@ -211,12 +211,41 @@ body {
     font-family: impact; }
 
 .zine-navbar-ul a {
-  color: #FAFAFA !important; }
+  color: #FAFAFA !important;
+  padding: 12px 0 !important;
+  text-align: center;
+  width: 125px; }
 .zine-navbar-ul li.active a {
   color: #F04242 !important;
   background-color: #F1E6E6 !important; }
 .zine-navbar-ul a:hover, .zine-navbar-ul a:focus {
   background-color: #F18787 !important; }
+.zine-navbar-ul a:hover .game:before {
+  content: 'GAME';
+  font-weight: bold;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px; }
+.zine-navbar-ul a:hover .stat:before {
+  content: 'STATS';
+  font-weight: bold;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px; }
+.zine-navbar-ul a:hover .rules:before {
+  content: 'RULES';
+  font-weight: bold;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px; }
+.zine-navbar-ul a:hover .logIn:before {
+  content: 'LOG IN';
+  font-weight: bold;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px; }
+.zine-navbar-ul a:hover .settings:before {
+  content: 'SETTINGS';
+  font-weight: bold;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  padding: 13px 0 !important; }
 
 .zine-dropdown-menu {
   background-color: #F1E6E6 !important; }
@@ -232,6 +261,9 @@ body {
 
 .settings {
   display: block !important; }
+
+.menuIcon {
+  font-size: 21px; }
 
 .rulesThumbnail {
   padding: 20px 20px 30px 20px;
@@ -325,8 +357,11 @@ body {
     background: #CD7F32; }
 
 .main {
-  margin-top: 80px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
 
 .welcome {
   color: #fafafa; }

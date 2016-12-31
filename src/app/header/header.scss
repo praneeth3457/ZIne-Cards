@@ -18,6 +18,9 @@
 .zine-navbar-ul {
   a {
     color : #FAFAFA !important;
+    padding : 12px 0 !important;
+    text-align: center;
+    width : 125px;
   }
   li.active {
     a {
@@ -27,6 +30,37 @@
   }
   a:hover, a:focus {
     background-color: #F18787 !important;
+  }
+  a:hover .game:before {
+    content: 'GAME';
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+  }
+  a:hover .stat:before {
+    content: 'STATS';
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+  }
+  a:hover .rules:before {
+    content: 'RULES';
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+  }
+  a:hover .logIn:before {
+    content: 'LOG IN';
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+  }
+  a:hover .settings:before {
+    content: 'SETTINGS';
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    padding:13px 0 !important;
   }
 }
 
@@ -48,4 +82,8 @@
 
 .settings {
   display: block !important;
+}
+
+.menuIcon {
+  font-size: 21px;
 }
