@@ -1,6 +1,6 @@
 <div>
     <div class="thumbnail userGameThumbnail user{{$index + 1}}" ng-repeat="user in main.gameDetails.users" ng-class="{'gameWin' : user.lastGameStatus == 'max', 'gameLoss' : user.lastGameStatus == 'min', 'newGame' : main.newGameStart}">
-      <img src="./src/app/images/avatar-male/male1.png" alt=""/>
+      <img src="./src/app/images/avatar-male/{{user.avatar}}.png" alt=""/>
       <div class="caption text-center">
         <span><strong>{{user.username}}</strong></span>
       </div>
