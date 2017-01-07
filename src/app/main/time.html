@@ -6,8 +6,8 @@
 </div>
 <div class="showTimer" ng-if="main.isGameRoundTimer">
 <div class="timer text-center">
-  <p class="text-center voffset6 timeText"><strong>Time remaining to place a show</strong></p>
-  <span class="timeSeconds">{{main.gameRoundTimer}}</span>
+  <p class="text-center voffset6 timeText"><strong>Remaining Cards</strong></p>
+  <span class="timeSeconds">{{main.gameDetails.remainingCards.length}}</span>
 </div>
-<button class="btn btn-primary btn-lg voffset4" ng-click="main.placeShow();"><strong>Place Show</strong></button>
+<button ng-if="!main.isCardPicked && main.timeUser == main.profileUserNo" class="btn btn-primary btn-lg voffset4 placeBtn" ng-click="main.placeShow();"><strong>Place Show</strong></button>
 </div>

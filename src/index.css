@@ -1,16 +1,18 @@
 html {
-  height: 100%; }
+  min-height: 100%; }
 
 body {
   min-height: 100%;
-  margin: 0; }
+  margin: 0;
+  position: absolute;
+  width: 100%; }
 
 body {
   background-color: #F1E6E6; }
   body .mainContent {
-    margin-top: 50px;
+    margin-top: 75px;
     margin-bottom: 30px;
-    min-height: 450px; }
+    min-height: 568px; }
 
 .voffset1 {
   margin-top: 5px; }
@@ -267,7 +269,7 @@ body {
 
 .rulesThumbnail {
   padding: 20px 20px 30px 20px;
-  margin-top: 70px; }
+  margin-top: 30px; }
 
 .rulesSubHead {
   color: #D22828; }
@@ -292,7 +294,7 @@ body {
 .zine-navbar-bottom {
   background-color: #242424;
   padding-top: 10px;
-  position: relative !important; }
+  position: static !important; }
 
 .login-form {
   padding: 40px; }
@@ -328,7 +330,7 @@ body {
 .subHeader {
   background: #242424;
   height: 45px;
-  margin-top: 0;
+  margin-top: 50px;
   border-bottom: 2px solid #e7e7e7;
   border-top: 1px solid #e7e7e7;
   position: fixed;
@@ -403,42 +405,45 @@ body {
       font-weight: bold; }
 
 .userGameThumbnail {
-  width: 140px;
+  width: 148px;
   margin: 0 auto;
-  position: absolute;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  padding: 4px;
+  position: absolute; }
   .userGameThumbnail .points-progress {
     margin-bottom: 5px; }
+  .userGameThumbnail .userName {
+    color: #FAFAFA;
+    font-size: 20px; }
 
 .user1 {
   bottom: 0;
-  left: 55%; }
+  left: 65%; }
 
 .user2 {
   top: 0;
-  left: 10%; }
+  left: 5%; }
 
 .user3 {
   top: 0;
-  left: 30%; }
+  left: 31%; }
 
 .user4 {
   top: 0;
-  left: 55%; }
+  left: 57%; }
 
 .user5 {
   top: 0;
-  right: 10%; }
+  right: 5%; }
 
 .showTimer {
   position: absolute;
   bottom: 5%;
-  right: 5%;
+  right: 2%;
   text-align: center; }
 
 .timer {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   border: 5px solid #FAFAFA;
   padding: 10px 20px 40px 20px;
@@ -469,26 +474,303 @@ body {
   left: 5%;
   bottom: 3%; }
   .zineCards .card {
-    width: 100px;
     float: left;
-    margin-right: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    margin-right: 10px; }
+    .zineCards .card .disabled {
+      opacity: 1; }
+    .zineCards .card .btn-drop {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      top: -55px;
+      margin-left: 20px; }
   .zineCards .cardsTotal {
     color: #FAFAFA;
     font-weight: bold;
     text-align: center; }
 
 .gameWin {
-  border: 3px solid green; }
+  border: 3px solid #FAFAFA;
+  background-color: #83F37F; }
 
 .gameLoss {
-  border: 3px solid red; }
+  border: 3px solid #FAFAFA;
+  background-color: #EE8D7F; }
 
 .newGame {
-  border: none; }
+  border: none;
+  background-color: transparent; }
 
+.pickCard {
+  width: 100px;
+  position: absolute;
+  bottom: 10%;
+  left: 50%; }
+
+.timerUser {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #fafafa;
+  border-radius: 50%;
+  background: #87431C;
+  padding: 3px 0;
+  margin-right: 20px;
+  left: -35px;
+  top: 50px;
+  position: absolute;
+  font-weight: bold;
+  font-size: 25px; }
+
+.userImg {
+  width: 140px; }
+
+.playCards {
+  width: 80px; }
+
+/*
+//////////// MEDIA QUERIES //////////////
+*/
+@media screen and (max-width: 1000px) and (min-width: 750px) {
+  .userImg {
+    width: 100px; }
+
+  .userGameThumbnail {
+    width: 106px; }
+
+  .userName {
+    font-size: 15px !important; }
+
+  .waitTime {
+    left: 21%; }
+    .waitTime p {
+      font-size: 15px !important; }
+
+  .playGame {
+    height: 500px; }
+
+  .pickCard, .playCards {
+    width: 55px; }
+
+  .showTimer {
+    right: 1%; }
+
+  .timer {
+    width: 115px;
+    height: 115px;
+    padding: 10px 15px 20px 15px; }
+    .timer p {
+      margin-top: 5px !important;
+      font-size: 12px; }
+    .timer .timeSeconds {
+      font-size: 40px; }
+
+  .placeBtn {
+    padding: 6px 10px !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    border-radius: 3px !important;
+    margin-top: 10px !important; }
+
+  .cardsTotal span {
+    font-size: 12px !important; }
+
+  .timerUser {
+    width: 45px !important;
+    height: 45px !important;
+    border: 3px solid #fafafa !important;
+    font-size: 22px !important;
+    top: 40px !important;
+    left: -30px !important; }
+
+  .dropCard {
+    width: 55px; }
+    .dropCard h3 {
+      font-size: 13px !important;
+      margin-top: 5px !important; }
+    .dropCard h6 {
+      display: none !important; } }
+@media screen and (max-width: 750px) and (min-width: 600px) {
+  .userImg {
+    width: 80px; }
+
+  .userGameThumbnail {
+    width: 86px; }
+
+  .userName {
+    font-size: 14px !important; }
+
+  .waitTime {
+    left: 20%; }
+    .waitTime p {
+      font-size: 14px !important; }
+
+  .playGame {
+    height: 430px; }
+
+  .pickCard, .playCards {
+    width: 40px; }
+
+  .showTimer {
+    right: 1%; }
+
+  .timer {
+    width: 100px;
+    height: 100px;
+    padding: 5px 10px 10px 5px; }
+    .timer p {
+      margin-top: 5px !important;
+      font-size: 11px; }
+    .timer .timeSeconds {
+      font-size: 30px; }
+
+  .placeBtn {
+    padding: 5px 5px !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    border-radius: 3px !important;
+    margin-top: 10px !important; }
+
+  .cardsTotal span {
+    font-size: 10px !important; }
+
+  .timerUser {
+    width: 40px !important;
+    height: 40px !important;
+    border: 3px solid #fafafa !important;
+    font-size: 18px !important;
+    top: 30px !important;
+    left: -30px !important; }
+
+  .dropCard {
+    width: 50px; }
+    .dropCard h3 {
+      font-size: 12px !important;
+      margin-top: 5px !important; }
+    .dropCard h6 {
+      display: none !important; } }
+@media screen and (max-width: 600px) and (min-width: 450px) {
+  .userImg {
+    width: 65px; }
+
+  .userGameThumbnail {
+    width: 70px; }
+
+  .userName {
+    font-size: 12px !important; }
+
+  .waitTime {
+    left: 20%; }
+    .waitTime p {
+      font-size: 12px !important; }
+
+  .playGame {
+    height: 370px; }
+
+  .pickCard, .playCards {
+    width: 30px; }
+
+  .showTimer {
+    right: 1%; }
+
+  .timer {
+    width: 80px;
+    height: 80px;
+    padding: 5px 5px 5px 5px;
+    border: 3px solid #fafafa; }
+    .timer p {
+      margin-top: 8px !important;
+      font-size: 10px; }
+    .timer .timeSeconds {
+      font-size: 25px; }
+
+  .placeBtn {
+    padding: 5px 5px !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    border-radius: 3px !important;
+    margin-top: 5px !important; }
+
+  .cardsTotal span {
+    font-size: 9px !important; }
+
+  .timerUser {
+    width: 35px !important;
+    height: 35px !important;
+    border: 2px solid #fafafa !important;
+    font-size: 16px !important;
+    top: 30px !important;
+    left: -25px !important; }
+
+  .dropCard {
+    width: 60px; }
+    .dropCard h3 {
+      font-size: 14px !important;
+      margin-top: 5px !important; }
+    .dropCard h6 {
+      margin-bottom: 5px; } }
+@media screen and (max-width: 450px) {
+  .userImg {
+    width: 50px; }
+
+  .userGameThumbnail {
+    width: 55px; }
+
+  .userName {
+    font-size: 10px !important; }
+
+  .waitTime {
+    left: 20%; }
+    .waitTime p {
+      font-size: 10px !important; }
+
+  .playGame {
+    height: 300px; }
+
+  .pickCard, .playCards {
+    width: 25px; }
+
+  .showTimer {
+    right: 1%; }
+
+  .timer {
+    width: 75px;
+    height: 75px;
+    padding: 5px 1px 5px 1px;
+    border: 2px solid #fafafa; }
+    .timer p {
+      margin-top: 8px !important;
+      font-size: 9px; }
+    .timer .timeSeconds {
+      font-size: 20px; }
+
+  .placeBtn {
+    padding: 1px 3px !important;
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+    border-radius: 3px !important;
+    margin-top: 3px !important; }
+
+  .cardsTotal span {
+    font-size: 8px !important; }
+
+  .timerUser {
+    width: 28px !important;
+    height: 28px !important;
+    border: 2px solid #fafafa !important;
+    font-size: 12px !important;
+    top: 20px !important;
+    left: -20px !important; }
+
+  .dropCard {
+    width: 40px; }
+    .dropCard h3 {
+      font-size: 12px !important;
+      margin-top: 3px !important; }
+    .dropCard h6 {
+      display: none !important; } }
 .stats {
-  margin-top: 100px; }
+  margin-top: 70px; }
 
 .statsTbl thead tr th {
   border-bottom: 2px solid #242424; }

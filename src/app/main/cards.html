@@ -1,11 +1,25 @@
 <div class="zineCards" ng-if="main.cards.length > 0">
   <div>
-    <div class="thumbnail card" ng-repeat="card in main.cards track by $index">
-      <img src="./src/app/images/cards/{{card}}.png" alt="">
+    <div class="card" ng-repeat="card in main.cards track by $index" ng-class="{'lastCard': ($index == main.cards.length - 1 && $index > 2), 'dropedCard' : main.dropedCard == $index}">
+      <button class="btn btn-danger btn-circle btn-drop" ng-if="main.selectedIndex == $index && !main.isCardDroped && main.isCardPicked" ng-click="main.dropCard(card, $index, main.profileUserNo);">drop</button>
+      <button class="btn btn-default" style="padding:5px;" ng-click="main.selectDropCard($index);" ng-class="{'disabled' : !main.isCardPicked}">
+        <img src="./src/app/images/cards/{{card}}.png" alt="" class="playCards">
+      </button>
     </div>
   </div>
   <div class="cardsTotal">
-    <h2>TOTAL = {{main.cardsTotal}}/{{main.maxTotal}}</h2>
+    <!-- <h2>TOTAL = {{main.cardsTotal}}/{{main.maxTotal}}</h2> -->
     <span>[Zine suggests your cards are {{main.suggest}}]</span>
+  </div>
+</div>
+<div class="pickCard" ng-if="main.timeUser == main.profileUserNo && !main.isCardDroped">
+  <div class="thumbnail card" ng-if="!main.isCardPicked">
+    <a href="" ng-click="main.cardPicked()">
+      <img src="./src/app/images/cards/pick_card.png" alt="Pick A Card" class="pickCardImg">
+    </a>
+  </div>
+  <div class="thumbnail card dropCard" ng-if="main.isCardPicked && !main.isCardDroped">
+      <h3 class="text-center">DROP ONE CARD</h3>
+      <h6 style="text-align:justify;">(Click on any card & press drop button to drop a card.)</h6>
   </div>
 </div>

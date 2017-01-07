@@ -1,8 +1,8 @@
 var app = angular.module('zine-cards');
 app.controller('profileController', function($http, $rootScope, userService, profileService) {
   var profile = this;
-  var maleAvatar = ['male1', 'male2', 'male3', 'male4', 'male5'];
-  var femaleAvatar = ['female1', 'female2', 'female3', 'female4', 'female5'];
+  var maleAvatar = ['male1', 'male2', 'male3', 'male4', 'male5', 'male6'];
+  var femaleAvatar = ['female1', 'female2', 'female3', 'female4', 'female5', 'female6'];
   this.isChangeAvatar = false;
   var user = userService.getUser();
   this.user = user.data;

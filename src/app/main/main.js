@@ -2,7 +2,7 @@ var app = angular.module('zine-cards');
 app.controller('mainController', function($http, userService, $location, $scope, $interval, $timeout, statsService, $window, $rootScope) {
   var main = this;
   this.isGame = false;
-  main.timeToStart = 90;
+  //main.timeToStart = 60;
   main.startGameTimer = false;
   var socket = io.connect();
 
@@ -23,6 +23,28 @@ app.controller('mainController', function($http, userService, $location, $scope,
     socket.emit('place show', {user: placedUser.data.username, gameDetails: main.gameDetails});
   }
 
+  // When user picks the card
+  main.cardPicked = function () {
+    main.isCardPicked = true;
+    var getUser = userService.getUser();
+    socket.emit('set new card', {user: getUser.data.username, gameDetails: main.gameDetails});
+  }
+
+  //When user drops a card
+  main.selectDropCard = function ($index) {
+    main.selectedIndex = $index
+  }
+  main.dropCard = function(card, $index, userNo) {
+    main.isCardPicked = false;
+    main.isCardDroped = true;
+    main.dropedCard = $index;
+    for(var g=0; g<main.gameDetails.users.length; g++) {
+      if(main.gameDetails.users[g].userNo == userNo) {
+        main.gameDetails.users[g].presentCards.splice($index, 1);
+      }
+    }
+    socket.emit('set drop card', {userNo: userNo, card: card, gameDetails: main.gameDetails});
+  }
 
   /*
   ******** ALL THE WEB SOCKETS **********
@@ -35,6 +57,7 @@ app.controller('mainController', function($http, userService, $location, $scope,
     //This is used to add the profile user to be at the bottom of the page, in the game
     for(var m=0; m<gameUsers.users.length; m++){
       if(mainUser.data.username == gameUsers.users[m].username) {
+        main.profileUserNo = gameUsers.users[m].userNo;
         storeUser = gameUsers.users.splice(m, 1);
         gameUsers.users.unshift(storeUser[0]);
       }
@@ -59,9 +82,31 @@ app.controller('mainController', function($http, userService, $location, $scope,
   });
 
   //For getting the timer of the game to place a show.
+  var savedUser = '';
   socket.on('get game round time', function(time){
+
+    if(main.profileUserNo == time.user && time.time == 1 && main.isCardPicked == true) {
+      for(var z=0; z<main.gameDetails.users.length; z++) {
+        if(main.gameDetails.users[z].userNo == main.profileUserNo){
+          var index = main.gameDetails.users[z].presentCards.length - 1;
+          var card = main.gameDetails.users[z].presentCards[main.gameDetails.users[z].presentCards.length - 1];
+          var userNo = main.gameDetails.users[z].userNo;
+        }
+      }
+      main.dropCard(card, index, userNo);
+    }
+    if(main.profileUserNo == time.user && time.time == 2 && main.isCardPicked == false){
+      main.cardPicked();
+    }
+    if(savedUser !== time.user && main.profileUserNo == time.user) {
+      main.isCardPicked = false;
+      main.isCardDroped = false;
+    }
+
+    savedUser = time.user;
     main.isGameRoundTimer = true;
-    main.gameRoundTimer = time;
+    main.gameRoundTimer = time.time;
+    main.timeUser = time.user;
     $scope.$apply();
   });
 
@@ -82,12 +127,6 @@ app.controller('mainController', function($http, userService, $location, $scope,
     for(var i=0; i<gameDetails.users.length; i++) {
       if(gameDetails.users[i].username == checkLogin.data.username){
         main.cards = gameDetails.users[i].presentCards;
-        console.log(main.cards);
-        // if(main.cards.length >= 5) {
-        //   $timeout(function () {
-        //     socket.emit('place show', {user: 'Zine auto-show', gameDetails: main.gameDetails});
-        //   }, 5000);
-        // }
         for(var t=0; t<main.cards.length; t++) {
           main.cardsTotal += main.cards[t];
           main.maxTotal += 9;
@@ -134,7 +173,6 @@ app.controller('mainController', function($http, userService, $location, $scope,
 
   //Name of the show placed user.
   socket.on('get placed user', function(data){
-    console.log(data);
     main.newGameStart = false;
     main.showOtherUserCards = true;
     main.placedMessage = 'Please wait! ' + data.user + ' has placed the show!';
@@ -213,6 +251,11 @@ app.controller('mainController', function($http, userService, $location, $scope,
     }, function(err) {
 
     });
+    $scope.$apply();
+  });
+
+  socket.on('get drop card', function(data){
+    main.gameDetails = data.gameDetails;
     $scope.$apply();
   });
 

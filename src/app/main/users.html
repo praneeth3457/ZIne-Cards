@@ -1,8 +1,8 @@
 <div>
-    <div class="thumbnail userGameThumbnail user{{$index + 1}}" ng-repeat="user in main.gameDetails.users" ng-class="{'gameWin' : user.lastGameStatus == 'max', 'gameLoss' : user.lastGameStatus == 'min', 'newGame' : main.newGameStart}">
-      <img src="./src/app/images/avatar-male/{{user.avatar}}.png" alt=""/>
-      <div class="caption text-center">
-        <span><strong>{{user.username}}</strong></span>
+    <div class="userGameThumbnail user{{$index + 1}}" ng-repeat="user in main.gameDetails.users" ng-class="{'gameWin' : user.lastGameStatus == 'max', 'gameLoss' : user.lastGameStatus == 'min', 'newGame' : main.newGameStart}">
+      <img src="./src/app/images/avatar-male/{{user.avatar}}.png" alt="" class="userImg"/>
+      <div class="caption text-center userName">
+        <span class="timerUser" ng-if="main.timeUser == user.userNo">{{main.gameRoundTimer}}</span><span><strong>{{user.username}}</strong></span>
       </div>
       <div class="progress points-progress" style="background-image: linear-gradient(to bottom,#B7C5C7 0,#B7C5C7 100%) !important;">
 
@@ -16,9 +16,9 @@
         <div class="thumbnail showCards" ng-repeat="card in user.prevCards track by $index">
           <img src="./src/app/images/cards/{{card}}.png" alt="">
         </div>
-        <div class="col-xs-12">
+        <!-- <div class="col-xs-12">
           Total : {{user.cardsTotalValue}}/{{user.maxTotalValue}}
-        </div>
+        </div> -->
       </div>
     </div>
 
