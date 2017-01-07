@@ -99,7 +99,9 @@ app.controller('mainController', function($http, userService, $location, $scope,
       main.cardPicked();
     }
     if(savedUser !== time.user && main.profileUserNo == time.user) {
-      main.isCardPicked = false;
+      if(main.isCardPicked !== true) {
+        main.isCardPicked = false;
+      }
       main.isCardDroped = false;
     }
 
